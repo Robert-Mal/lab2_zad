@@ -40,3 +40,24 @@ function findSubjectWithWeight(user, weight) {
 }
 
 console.log(findSubjectWithWeight(user, 1));
+
+const collections = [
+    {},
+    15,
+    "hello@test.pl",
+    null,
+    ['aaa', 'bbb', 5],
+    'admin@gmail.com',
+    undefined,
+    'a34@yahoo.com',
+    '321@a',
+    '321.pl'
+];
+
+function getMails(mails) {
+    let list = _.filter(mails, (mail) => { return typeof mail === 'string' })
+    let re = /\w+@\w+\.\w+/i;
+    console.log(_.sortBy(_.filter(list, (mail) => { return re.test(mail)})));
+}
+
+getMails(collections);
