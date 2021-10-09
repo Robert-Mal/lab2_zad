@@ -21,3 +21,16 @@ const user = {
         }
     ]
 }
+
+function calculateWeightedAverage(user) {
+    let numerator = 0;
+    let denominator = 0;
+    _.forEach(user.allGrades, (subject) => {
+        numerator += _.sum(_.map(subject.grades, (a) => { return a * subject.weight }));
+        denominator += subject.weight * subject.grades.length;
+    })
+
+    return {user: user.name + ' ' + user.surname, average: (numerator / denominator)};
+}
+
+console.log(calculateWeightedAverage(user));
