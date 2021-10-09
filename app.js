@@ -34,3 +34,9 @@ function calculateWeightedAverage(user) {
 }
 
 console.log(calculateWeightedAverage(user));
+
+function findSubjectWithWeight(user, weight) {
+    return _.find(user.allGrades, (subject) => { return subject.weight === weight})
+}
+
+console.log(findSubjectWithWeight(user, 1));
